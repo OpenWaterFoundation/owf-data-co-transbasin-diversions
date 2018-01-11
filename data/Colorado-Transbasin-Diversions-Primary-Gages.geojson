@@ -1,0 +1,261 @@
+{
+  "type": "FeatureCollection",
+  "bbox": [-106.077807, 39.360267, -105.578057, 40.908034],
+  "features": [
+      {
+      "type": "Feature",
+      "bbox": [-105.779723, 40.908034, -105.779723, 40.908034],
+      "properties": {
+        "TransbasinDiversionName": "Wilson Supply Ditch",
+        "Gage_ID": "06750500",
+        "Gage_Name": "WILSON SUPPLY DITCH NEAR EATON RESERVOIR @ 10 FT PARSHALL FLUME",
+        "Latitude": 40.908034,
+        "Longitude": -105.779723
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.779723, 40.908034]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.803895, 40.83609, -105.803895, 40.83609],
+      "properties": {
+        "TransbasinDiversionName": "Deadman Ditch",
+        "Gage_ID": "DEADDPCO",
+        "Gage_Name": "DEADMAN DITCH NEAR DEADMAN PARK",
+        "Latitude": 40.83609,
+        "Longitude": -105.803895
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.803895, 40.83609]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.771945, 40.75942, -105.771945, 40.75942],
+      "properties": {
+        "TransbasinDiversionName": "Bob Creek Ditch",
+        "Gage_ID": "BOBGLNCO",
+        "Gage_Name": "BOBCREEK DITCH NEAR DEADMAN MTN., NEAR GLENDEVEY",
+        "Latitude": 40.75942,
+        "Longitude": -105.771945
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.771945, 40.75942]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.768059, 40.798034, -105.768059, 40.798034],
+      "properties": {
+        "TransbasinDiversionName": "Columbine Ditch",
+        "Gage_ID": "06750000",
+        "Gage_Name": "COLUMBINE DITCH AT DEADMAN HILL",
+        "Latitude": 40.798034,
+        "Longitude": -105.768059
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.768059, 40.798034]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.852787, 40.676369, -105.852787, 40.676369],
+      "properties": {
+        "TransbasinDiversionName": "Laramie Poudre Tunnel",
+        "Gage_ID": "06747000",
+        "Gage_Name": "LARAMIE POUDRE TUNNEL @ 10 FT PARSHALL FLUME",
+        "Latitude": 40.676369,
+        "Longitude": -105.852787
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.852787, 40.676369]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.859177, 40.617481, -105.859177, 40.617481],
+      "properties": {
+        "TransbasinDiversionName": "Skyline Ditch",
+        "Gage_ID": "06746500",
+        "Gage_Name": "SKYLINE DITCH AT CHAMBERS LAKE",
+        "Latitude": 40.617481,
+        "Longitude": -105.859177
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.859177, 40.617481]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.881954, 40.524983, -105.881954, 40.524983],
+      "properties": {
+        "TransbasinDiversionName": "Cameron Pass Ditch",
+        "Gage_ID": "CAPDCPCO",
+        "Gage_Name": "CAMERON PASS DITCH NEAR CAMERON PASS",
+        "Latitude": 40.524983,
+        "Longitude": -105.881954
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.881954, 40.524983]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.89279, 40.520538, -105.89279, 40.520538],
+      "properties": {
+        "TransbasinDiversionName": "Michigan Ditch",
+        "Gage_ID": "06746000",
+        "Gage_Name": "MICHIGAN DITCH AT CAMERON PASS",
+        "Latitude": 40.520538,
+        "Longitude": -105.89279
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.89279, 40.520538]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.821953, 40.477207, -105.821953, 40.477207],
+      "properties": {
+        "TransbasinDiversionName": "Grand River Ditch",
+        "Gage_ID": "09010000",
+        "Gage_Name": "GRAND RIVER DITCH AT LA POUDRE PASS",
+        "Latitude": 40.477207,
+        "Longitude": -105.821953
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.821953, 40.477207]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.578057, 40.327762, -105.578057, 40.327762],
+      "properties": {
+        "TransbasinDiversionName": "Colorado-Big Thompson Project",
+        "Gage_ID": "09013000",
+        "Gage_Name": "ALVA B ADAMS TUN AT E PORTAL, NR ESTES PARK, CO.",
+        "Latitude": 40.327762,
+        "Longitude": -105.578057
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.578057, 40.327762]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.645561, 39.901653, -105.645561, 39.901653],
+      "properties": {
+        "TransbasinDiversionName": "Moffat Collection System Project",
+        "Gage_ID": "09022500",
+        "Gage_Name": "MOFFAT WATER TUNNEL AT EAST PORTAL, CO.",
+        "Latitude": 39.901653,
+        "Longitude": -105.645561
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.645561, 39.901653]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.776955, 39.798878, -105.776955, 39.798878],
+      "properties": {
+        "TransbasinDiversionName": "Berthoud Pass Ditch",
+        "Gage_ID": "09021500",
+        "Gage_Name": "BERTHOUD PASS DITCH AT BERTHOUD PASS, CO.",
+        "Latitude": 39.798878,
+        "Longitude": -105.776955
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.776955, 39.798878]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.904178, 39.679427, -105.904178, 39.679427],
+      "properties": {
+        "TransbasinDiversionName": "Straight Creek Tunnel",
+        "Gage_ID": "STCTUNCO",
+        "Gage_Name": "STRAIGHT CR. TUNNEL AT EAST PORTAL OF EISENHOWER",
+        "Latitude": 39.679427,
+        "Longitude": -105.904178
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.904178, 39.679427]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.790008, 39.624431, -105.790008, 39.624431],
+      "properties": {
+        "TransbasinDiversionName": "Vidler Collection System",
+        "Gage_ID": "09047300",
+        "Gage_Name": "VIDLER TUNNEL NEAR ARGENTINE PASS",
+        "Latitude": 39.624431,
+        "Longitude": -105.790008
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.790008, 39.624431]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-106.046407, 39.61693, -106.046407, 39.61693],
+      "properties": {
+        "TransbasinDiversionName": "Roberts Tunnel Collection System",
+        "Gage_ID": "09050590",
+        "Gage_Name": "ROBERTS TUNNEL AT EAST PORTAL NEAR GRANT",
+        "Latitude": 39.61693,
+        "Longitude": -106.046407
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-106.046407, 39.61693]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.968071, 39.410543, -105.968071, 39.410543],
+      "properties": {
+        "TransbasinDiversionName": "Boreas Pass Ditch",
+        "Gage_ID": "09046000",
+        "Gage_Name": "BOREAS PASS DITCH AT BOREAS PASS",
+        "Latitude": 39.410543,
+        "Longitude": -105.968071
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.968071, 39.410543]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-106.077807, 39.360267, -106.077807, 39.360267],
+      "properties": {
+        "TransbasinDiversionName": "Continental-Hoosier Diversion System",
+        "Gage_ID": "HSPTUNCO",
+        "Gage_Name": "HOOSIER PASS TUNNEL AT MONTGOMERY RESERVOIR NEAR ALMA",
+        "Latitude": 39.360267,
+        "Longitude": -106.077807
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-106.077807, 39.360267]
+      }
+    }
+  ]
+}

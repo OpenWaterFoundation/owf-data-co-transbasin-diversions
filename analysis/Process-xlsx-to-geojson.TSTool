@@ -1,0 +1,13 @@
+# Convert transbasin diversion data from Excel to geojson format.
+#
+StartLog(LogFile="xlsx-to-geojson.TSTool.log")
+#
+#  TSTool is used because it automates the process.
+#  Filter out rows with empty TransbasinDiversionName in case there are extra rows.
+# "Diversion_Gage_Relate" worksheet
+SetDebugLevel(LogFileLevel=1)
+ReadTableFromExcel(TableID="Gages",InputFile="..\data\Colorado-Transbasin-Diversions.xlsx",Worksheet="Diversion_Gage_Relate",ExcelColumnNames=FirstRowInRange,ColumnExcludeFilters="TransbasinDiversionName:",ExcelTextColumns="Gage_ID")
+SetDebugLevel(ScreenLevel=0,LogFileLevel=0)
+WriteTableToGeoJSON(TableID="Gages",OutputFile="..\data\Colorado-Transbasin-Diversions-Primary-Gages.geojson",LongitudeColumn="Longitude",LatitudeColumn="Latitude")
+#
+# "Diversion_Structure_Relate" worksheet   **TO BE COMPLETED ONCE STRUCTURES HAVE COORDINATES**

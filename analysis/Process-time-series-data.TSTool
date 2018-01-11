@@ -1,0 +1,61 @@
+#
+# Start log file
+StartLog(LogFile="time-series-data.TSTool.log")
+#
+# 1)  Read the Gage_IDs associated with Transbasin Diversions as part of the "Colorado-Transbasin-Diversions.xlsx" file
+# Gage IDs can be found in the Diversion_Gage_Relate worksheet
+ReadTableFromExcel(TableID="Diversion_Gages",InputFile="..\data\Colorado-Transbasin-Diversions.xlsx",Worksheet="Diversion_Gage_Relate",ExcelColumnNames=FirstRowInRange)
+#
+# 2)  Get monthly time series data for the gages; data are in acre-feet
+# Note that the error here pertains to the Adams Tunnel gage; this has to be manually added in because the data are in Hydrobase but not ColoradoWaterHBGuest
+ReadTimeSeriesList(TableID="Diversion_Gages",LocationColumn="Gage_ID",DataSource="DWR",DataType="Streamflow",Interval="Month",DataStore="ColoradoWaterHBGuest",Alias="%D-Streamflow-Month",IfNotFound=Warn)
+#
+# Get data for the Adams Tunnel
+# 09013000 - ALVA B ADAMS TUN AT E PORTAL, NR ESTES PARK, CO.
+09013000.DWR.Streamflow.Month~HydroBase
+09013000.DWR.AdminFlow.Month~HydroBase
+# Combine the two Adams Tunnel time series together
+FillFromTS(TSList=AllMatchingTSID,TSID="09013000.DWR.Streamflow.Month",IndependentTSList=AllMatchingTSID,IndependentTSID="09013000.DWR.AdminFlow.Month")
+Blend(TSID="09013000.DWR.Streamflow.Month",IndependentTSID="09013000.DWR.AdminFlow.Month",BlendMethod=BlendAtEnd)
+SetTimeSeriesProperty(TSList=AllMatchingTSID,TSID="09013000.DWR.Streamflow.Month",Description="ALVA B ADAMS TUN AT E PORTAL, NR ESTES PARK, CO.")
+Copy(TSID="09013000.DWR.Streamflow.Month",NewTSID="09013000...Month",Alias="%D-Streamflow-Month")
+#
+# Free the two original time series to only have one time series for the Adams Tunnel
+Free(TSList=AllMatchingTSID,TSID="09013000.DWR.AdminFlow.Month")
+Free(TSList=AllMatchingTSID,TSID="09013000.DWR.Streamflow.Month")
+#
+# 3)  Sum the monthly values to obtain annual data
+ChangeInterval(TSList=AllTS,Alias="%D-Streamflow-Annual",NewInterval=Year,OldTimeScale=ACCM,NewTimeScale=ACCM,AllowMissingCount=12)
+#
+# 4) Calculate mean annual diversion total
+CalculateTimeSeriesStatistic(TSList=AllMatchingTSID,TSID="*Annual*",Statistic="Mean",TableID="Mean-Annual-Diversion-Total",TableTSIDColumn="Gage",TableStatisticColumn="Mean_Annual_Diverted")
+#
+# 5)  Generate graphs
+# Graphs of monthly data
+# This requires the creation of a For() loop for the gage names in order to output a graph for each gage
+# First expand the template for the current gage and then process the graph
+For(Name="GageLoop",IteratorProperty="gage",TableID="Diversion_Gages",TableColumn="Gage_Name")
+ExpandTemplateFile(InputFile="..\output\gage-monthly-volume-graph-template.tsp",OutputFile="..\output\${gage}-monthly.tsp",ListInResults=False)
+ProcessTSProduct(TSProductFile="..\output\${gage}-monthly.tsp",View=False,OutputFile="..\output\${gage}-monthly.png")
+#
+# Graphs of annual data
+# First expand the template for the current gage and then process the graph
+ExpandTemplateFile(InputFile="..\output\gage-annual-volume-graph-template.tsp",OutputFile="..\output\${gage}-annual.tsp",ListInResults=False)
+ProcessTSProduct(TSProductFile="..\output\${gage}-annual.tsp",View=False,OutputFile="..\output\${gage}-annual.png")
+#
+EndFor(Name="GageLoop")
+#
+# 6)  Write time series to CSV; separate files for monthly and annual
+WriteDelimitedFile(TSList=AllMatchingTSID,TSID="*Month",OutputFile="..\data\Monthly-Time-Series-Data.csv",DateTimeColumn="Date",ValueColumns="%L")
+WriteDelimitedFile(TSList=AllMatchingTSID,TSID="*Annual",OutputFile="..\data\Annual-Time-Series-Data.csv",DateTimeColumn="Date",ValueColumns="%L")
+#
+#
+# Extra steps, used in preliminary work
+# Get location data for the gages
+# Copy the time series properties to get lat/long
+CopyTimeSeriesPropertiesToTable(TSList=AllTS,TableID="Gage_Properties_v1",TableTSIDColumn="TSID",TableTSIDFormat="%A")
+# Copy table and remove unneeded columns
+CopyTable(TableID="Gage_Properties_v1",NewTableID="Gage_Properties",IncludeColumns="station_name,station_id,longdecdeg,latdecdeg",ColumnMap="station_name:Gage_Name,station_id:Gage_ID,latdecdeg:Latitude,longdecdeg:Longitude")
+#
+#
+#

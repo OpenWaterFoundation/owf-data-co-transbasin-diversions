@@ -1,0 +1,20 @@
+# Convert transbasin data from Excel to csv format.
+#
+StartLog(LogFile="xlsx-to-csv.TSTool.log")
+#
+#  TSTool is used because it automates the process.
+#  Filter out rows with empty TransbasinDiversionName in case there are extra rows.
+# "TransbasinDiversion" worksheet
+SetDebugLevel(LogFileLevel=1)
+ReadTableFromExcel(TableID="Transbasin-Diversions",InputFile="..\data\Colorado-Transbasin-Diversions.xlsx",Worksheet="TransbasinDiversion",ExcelColumnNames=FirstRowInRange,ColumnExcludeFilters="TransbasinDiversionName:",ExcelIntegerColumns="Source_WaterDistrict,Source_WaterDivision,Destination_WaterDistrict,Destination_WaterDivision",ExcelTextColumns="Source_GNIS_ID_CSV,Destination_GNIS_ID,Structure_WDID_CSV")
+SetDebugLevel(ScreenLevel=0,LogFileLevel=0)
+WriteTableToDelimitedFile(TableID="Transbasin-Diversions",OutputFile="..\data\Colorado-Transbasin-Diversions.csv",WriteHeaderComments=False)
+#
+# "Diversion_Structure_Relate" worksheet
+ReadTableFromExcel(TableID="Structures",InputFile="..\data\Colorado-Transbasin-Diversions.xlsx",Worksheet="Diversion_Structure_Relate",ExcelColumnNames=FirstRowInRange,ColumnExcludeFilters="TransbasinDiversionName:",ExcelTextColumns="Structure_WDID")
+WriteTableToDelimitedFile(TableID="Structures",OutputFile="..\data\Diversion-Structure-Relate.csv",WriteHeaderComments=False)
+#
+# "Diversion_Gage_Relate" worksheet
+ReadTableFromExcel(TableID="Gages",InputFile="..\data\Colorado-Transbasin-Diversions.xlsx",Worksheet="Diversion_Gage_Relate",ExcelColumnNames=FirstRowInRange,ColumnExcludeFilters="TransbasinDiversionName:",ExcelTextColumns="Gage_ID")
+WriteTableToDelimitedFile(TableID="Gages",OutputFile="..\data\Diversion-Gage-Relate.csv",WriteHeaderComments=False)
+#
