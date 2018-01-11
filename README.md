@@ -9,21 +9,27 @@ OWF has created and is maintaining this dataset to facilitate work on various da
 The repository contains the following:
 
 ```text
-analysis/                                       TSTool software command files to process data into useful forms.
-  Process-xlsx-to-csv.TSTool                    TSTool command file that processes the core dataset from .xlsx to .csv.
-  Process-xlsx-to-geojson.TSTool                TSTool command file that processes the core dataset from .xlsx to .geojson.  
-data-orig/                                      Folder containing original data files downloaded from agency websites.
-  README.md                                     Explanation of folder contents, description of data files, and the methodology used to obtain the data and mapping to the joined dataset
-data/                                           Folder containing data files.
-  Colorado-Transbasin-Diversions.xlsx           Simple Excel file containing core data.
-  Colorado-Transbasin-Diversions.csv            The Excel file contents from the TransbasinDiversion worksheet converted to a csv file, useful for automated processing.
-  Diversion-Structure-Relate.csv                The Excel file contents from the Diversion_Structure_Relate worksheet converted to a csv file, useful for automated processing.  **IN INITIAL STAGES**
-  Diversion-Gage-Relate.csv                     The Excel file contents from the Diversion_Gage_Relate worksheet converted to a csv file, useful for automated processing.
+analysis/                                               TSTool software command files to process data into useful forms.
+  Process-xlsx-to-csv.TSTool                            TSTool command file that processes the core dataset from .xlsx to .csv.
+  Process-xlsx-to-geojson.TSTool                        TSTool command file that processes the core dataset from .xlsx to .geojson.  
+  Process-time-series-data.TSTool                       TSTool command file that processes time series data of the primary streamflow gages associated with each transbasin diversion.  
+data/                                                   Folder containing data files.
+  Annual-Time-Series-Data.csv                           Annual time series data exported from TSTool.         
+  Colorado-Transbasin-Diversions.csv                    The Excel file contents from the TransbasinDiversion worksheet converted to a csv file, useful for automated processing.
+  Colorado-Transbasin-Diversions.xlsx                   Simple Excel file containing core data.
+  Colorado-Transbasin-Diversions-Primary-Gages.geojson  Spatial data file of the locations of the gages that record the total amount of water diverted from each transbasin diversion project.
+  Diversion-Gage-Relate.csv                             The Excel file contents from the Diversion_Gage_Relate worksheet converted to a csv file, useful for automated processing.
+  Diversion-Structure-Relate.csv                        The Excel file contents from the Diversion_Structure_Relate worksheet converted to a csv file, useful for automated processing.  **IN INITIAL STAGES**
+  Monthly-Time-Series-Data.csv                          Monthly time series data exported from TSTool.
 doc/
-  ?                                             Additional documentation for the dataset.
-.gitattributes                                  Git configuration file indicate repository configuration, in particular handling of line-ending and binary files.
-.gitignore                                      Git configuration file to ignore files that should not be committed to the repository.
-README.md                                       Explanation of repository contents, data files and sources and TSTool command files used to process the core data into other products.
+  ?                                                     Additional documentation for the dataset.
+output/                                                 Folder containing output products, such as graphs, and the template files used to create them.
+  gage-annual-volume-graph-template.tsp                 Template used for creating graphs of annual streamflow for gages.
+  gage-monthly-volume-graph-template.tsp                Template used for creating graphs of monthly streamflow for gages.
+  .gitignore                                            Git configuration file to ignore files that should not be committed to the repository.  
+.gitattributes                                          Git configuration file indicate repository configuration, in particular handling of line-ending and binary files.
+.gitignore                                              Git configuration file to ignore files that should not be committed to the repository.
+README.md                                               Explanation of repository contents, data files and sources and TSTool command files used to process the core data into other products.
 ```
 
 ### Colorado-Transbasin-Diversions.xlsx Contents ###
