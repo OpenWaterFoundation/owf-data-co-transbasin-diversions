@@ -47,7 +47,7 @@ The core Excel workbook that serves as the master data contains the following da
 * **Source_GNIS_ID_CSV** - [Geographic Names Information System](https://geonames.usgs.gov/apex/f?p=138:1:9185633219989) identifier of the water source(s), in comma-separated format, to link federal datasets
 * **Source_GNIS_ID_CSV_Flag** - data status of Source_GNIS_ID_CSV values; see more detail below
 * **Source_Structure_WDID_CSV** - WDIDs (state identifiers for structures such as ditches and reservoirs) of structures associated with the source of the transbasin diversion, in comma-separated format, to link state datasets.  In a typical transbasin diversion, there is a "source" structure(s) which is the point of diversion from a stream; this structure(s) may or may not have diversion records.
-* **Source_Structure_WDID_CSV_Flag** - data status of Destination_Structure_WDID_CSV values; see more detail below
+* **Source_Structure_WDID_CSV_Flag** - data status of Source_Structure_WDID_CSV values; see more detail below
 * **Source_IBCCBasin** - [Interbasin Compact Committee](http://cwcb.state.co.us/about-us/about-the-ibcc-brts/Pages/main.aspx) basin of the water source 
 * **Source_IBCCBasin_Flag** - data status of Source_IBCCBasin values; see more detail below
 * **Destination_WaterDistrict_ID** - Division of Water Resources' Water District ID of the water destination
@@ -72,6 +72,7 @@ For many data columns, a second column of the same name with the word "_Flag" ad
 * G = Value is a known/good value.  
 * g = Value is an estimated (but good) value.  The associated cell is also highlighted in yellow.
 * N = Value is not applicable for the municipality and a blank cell is expected.
+* I = Incomplete values; cell has been populated but may not yet contain all values or may need to be further verified
 * M = Value is known to be missing in original source and therefore a blank cell indicates that a value cannot be provided.
 * m = Value is estimated to be missing.  The associated cell is also highlighted in gray.
 * z = Value is unable to be confirmed.  A value is possible but cannot be confirmed one way or the other.  The associated cell is also highlighted in orange.
@@ -177,6 +178,7 @@ This analysis of transbasin diversions is focused on diversions between water di
 	
 ## Verification ##
 After downloading monthly time series data and summing the values to calculate annual diversion amounts, the mean annual diversion totals, in acre-feet, were calculated.  OWF used the entire period of record available for each diversion within HydroBase.  These totals were cross-checked against totals provided by Water Education Colorado's Citizen's Guide to Colorado's Transbasin Diversions (pg. 9) and [Basin Fact Sheets](http://cwcb.state.co.us/public-information/publications/Pages/FactSheets.aspx) published by the Colorado Water Conservation Board in 2006.  Water Education Colorado's totals are "based upon the period of record available in electronic form for each diversion".  The totals are shown in the table below.  Basin Fact Sheet totals were calculated by different methods depending on the basin and are detailed below the table.  This table was manually generated but in future versions it is anticipated that the table will be automatically produced and updated via a TSTool command file.
+
 Transbasin Diversion | OWF Total | Water Education Colorado Total | Basin Fact Sheet Total
 --- | :---: | :---: | :---: 
 Wilson Supply Ditch | 2,313 | 2,314 | 1,482^1^
@@ -234,7 +236,7 @@ Currently, the graphs and websites are not viewable from this repository in orde
 1. Download repository files - to download a zip file use the green ***Clone or download*** button on GitHub and then ***Download ZIP***, and then unzip the folder.
 2. Download the most current version of TSTool - the latest TSTool version is available from the [Open Water Foundation TSTool page](http://openwaterfoundation.org/software-tools/tstool).
 3. Run the Process-time-series-data.TSTool command file - open the command file in TSTool and click the "Run All Commands" button; the file will complete shortly.
-4. View the monthly and annual time series graphs in a browser - graphs are contained in the [website](https://github.com/OpenWaterFoundation/owf-model-pointflow-co-poudre/tree/master/analysis-output/website) folder.  Monthly graphs and the associated website can be found in the "monthly" folder.  Graphs can be viewed individually by clicking on any `.png` file.  To view the graphs in a website, click on `monthly-diversions.html`.  Follow the same procedure for annual data.
+4. View the monthly and annual time series graphs in a browser - graphs are contained in the [website](https://github.com/OpenWaterFoundation/owf-data-co-transbasin-diversions/tree/master/analysis-output/website) folder.  Monthly graphs and the associated website can be found in the "monthly" folder.  Graphs can be viewed individually by clicking on any `.png` file.  To view the graphs in a website, click on `monthly-diversions.html`.  Follow the same procedure for annual data.
 
 
 ## How to Use the Data ##
