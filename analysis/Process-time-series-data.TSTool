@@ -26,6 +26,8 @@ Free(TSList=AllMatchingTSID,TSID="09013000.DWR.Streamflow.Month")
 #
 # 3)  Sum the monthly values to obtain annual data
 ChangeInterval(TSList=AllTS,Alias="%D-Streamflow-Annual",NewInterval=Year,OldTimeScale=ACCM,NewTimeScale=ACCM,AllowMissingCount=12)
+# Set values with 0.00 to missing so as to not affect subsequent calculations; this also gives a better estimate of mean annual diversions when water is actually diverted in a given year
+ReplaceValue(TSList=AllMatchingTSID,TSID="*Annual",MinValue=0.00,MaxValue=0.00,Action=SetMissing)
 #
 # 4) Calculate mean annual diversion total
 CalculateTimeSeriesStatistic(TSList=AllMatchingTSID,TSID="*Annual*",Statistic="Mean",TableID="Mean-Annual-Diversion-Total",TableTSIDColumn="Gage",TableStatisticColumn="Mean_Annual_Diverted")
@@ -35,17 +37,28 @@ CalculateTimeSeriesStatistic(TSList=AllMatchingTSID,TSID="*Annual*",Statistic="M
 # This requires the creation of a For() loop for the gage names in order to output a graph for each gage
 # First expand the template for the current gage and then process the graph
 For(Name="GageLoop",IteratorProperty="gage",TableID="Diversion_Gages",TableColumn="Gage_Name")
-ExpandTemplateFile(InputFile="..\output\gage-monthly-volume-graph-template.tsp",OutputFile="..\output\${gage}-monthly.tsp",ListInResults=False)
-ProcessTSProduct(TSProductFile="..\output\${gage}-monthly.tsp",View=False,OutputFile="..\output\${gage}-monthly.png")
+ExpandTemplateFile(InputFile="..\analysis-output\gage-monthly-volume-graph-template.tsp",OutputFile="..\analysis-output\website\monthly\${gage}-monthly.tsp",ListInResults=False)
+ProcessTSProduct(TSProductFile="..\analysis-output\website\monthly\${gage}-monthly.tsp",View=False,OutputFile="..\analysis-output\website\monthly\${gage}-monthly.png")
 #
 # Graphs of annual data
 # First expand the template for the current gage and then process the graph
-ExpandTemplateFile(InputFile="..\output\gage-annual-volume-graph-template.tsp",OutputFile="..\output\${gage}-annual.tsp",ListInResults=False)
-ProcessTSProduct(TSProductFile="..\output\${gage}-annual.tsp",View=False,OutputFile="..\output\${gage}-annual.png")
+ExpandTemplateFile(InputFile="..\analysis-output\gage-annual-volume-graph-template.tsp",OutputFile="..\analysis-output\website\annual\${gage}-annual.tsp",ListInResults=False)
+ProcessTSProduct(TSProductFile="..\analysis-output\website\annual\${gage}-annual.tsp",View=False,OutputFile="..\analysis-output\website\annual\${gage}-annual.png")
 #
 EndFor(Name="GageLoop")
 #
-# 6)  Write time series to CSV; separate files for monthly and annual
+# 6)  Generate an HTML page that contains the graphs
+# First copy Gage_Name from the Diversion_Gages table to simplify time series processing; the table will serve as a list of gages in the creation of the HTML page
+CopyTable(TableID="Diversion_Gages",NewTableID="GageList",IncludeColumns="Gage_Name")
+# HTML page for monthly data
+# Expand the HTML template that helps navigate the monthly graphs; this creates an HTML page that contains all of the monthly graphs
+ExpandTemplateFile(InputFile="..\analysis-output\monthly-diversions-html-template.html",OutputFile="..\analysis-output\website\monthly\monthly-diversions.html")
+#
+# HTML page for annual data
+# Expand the HTML template that helps navigate the annual graphs; this creates an HTML page that contains all of the annual graphs
+ExpandTemplateFile(InputFile="..\analysis-output\annual-diversions-html-template.html",OutputFile="..\analysis-output\website\annual\annual-diversions.html")
+#
+# 7)  Write time series to CSV; separate files for monthly and annual
 WriteDelimitedFile(TSList=AllMatchingTSID,TSID="*Month",OutputFile="..\data\Monthly-Time-Series-Data.csv",DateTimeColumn="Date",ValueColumns="%L")
 WriteDelimitedFile(TSList=AllMatchingTSID,TSID="*Annual",OutputFile="..\data\Annual-Time-Series-Data.csv",DateTimeColumn="Date",ValueColumns="%L")
 #

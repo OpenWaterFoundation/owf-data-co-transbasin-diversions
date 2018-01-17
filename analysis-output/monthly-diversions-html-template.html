@@ -1,0 +1,49 @@
+<html>
+<!-- HTML file that helps navigate the monthly diversion graphs -->
+<head>
+<link rel="stylesheet" type="text/css" href="..\..\Diversions.css">
+</head>
+<body>
+<h1>Transbasin Diversion Monthly Totals</h1>
+<p>The table provides navigation for each transbasin diversion and can be used to summarize diversion data including missing data, trends, metrics, etc.</p>
+<table>
+<tr>
+<th>
+Transbasin Diversion
+</th>
+<th>
+Count of Data Values
+</th>
+<th>
+% of Basin Imports
+</th>
+<th>
+Trend
+</th>
+</tr>
+<#list GageList as gage>
+<tr>
+<td>
+<a href="#${gage}">${gage}</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+</#list>
+</table>
+
+<hr>
+
+
+<#list GageList as gage>
+<p>
+<h2 id="${gage}">
+<img src="${gage}-monthly.png" border="2" /><br>
+</p>
+</#list>
+</body>
+</html>

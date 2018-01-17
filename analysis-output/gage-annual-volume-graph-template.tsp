@@ -2,10 +2,12 @@
 [Product]
 
 ProductType = "Graph"
-TotalWidth = "600"
+TotalWidth = "700"
 TotalHeight = "400"
 MainTitleString = "${gage}"
 SubTitleString = "Annual Diversions, Acre-Feet"
+MainTitleFontSize = "16"
+MainTitleFontStyle = "Bold"
 
 [SubProduct 1]
 

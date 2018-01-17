@@ -1,0 +1,5 @@
+# Make sure this folder remains empty except for the template files.  If the TSTool command file Process-time-series-data.TSTool is run, then the output graphs will be placed here.
+
+!.gitignore
+!gage-annual-volume-graph-template.tsp
+!gage-monthly-volume-graph-template.tsp
