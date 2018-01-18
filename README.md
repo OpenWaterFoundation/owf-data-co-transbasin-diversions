@@ -177,57 +177,54 @@ This analysis of transbasin diversions is focused on diversions between water di
 
 	
 ## Verification ##
-After downloading monthly time series data and summing the values to calculate annual diversion amounts, the mean annual diversion totals, in acre-feet, were calculated.  OWF used the entire period of record available for each diversion within HydroBase.  These totals were cross-checked against totals provided by Water Education Colorado's Citizen's Guide to Colorado's Transbasin Diversions (pg. 9) and [Basin Fact Sheets](http://cwcb.state.co.us/public-information/publications/Pages/FactSheets.aspx) published by the Colorado Water Conservation Board in 2006.  Water Education Colorado's totals are "based upon the period of record available in electronic form for each diversion".  The totals are shown in the table below.  Basin Fact Sheet totals were calculated by different methods depending on the basin and are detailed below the table.  This table was manually generated but in future versions it is anticipated that the table will be automatically produced and updated via a TSTool command file.
+After downloading monthly time series data and summing the values to calculate annual diversion amounts, the mean annual diversion totals, in acre-feet, were calculated.  OWF used the entire period of record available for each diversion within HydroBase.  These totals were cross-checked against totals provided by Water Education Colorado's Citizen's Guide to Colorado's Transbasin Diversions (pg. 9) and [Basin Fact Sheets](http://cwcb.state.co.us/public-information/publications/Pages/FactSheets.aspx) published by the Colorado Water Conservation Board in 2006.  Water Education Colorado's totals are "based upon the period of record available in electronic form for each diversion".  The totals are shown in the table below.  Basin Fact Sheet totals were primarily calculated from 10-year averages published in division annual reports dated from 1998.  The exceptions are those totals marked with an asterisk;  for these the period of record is 1971-2003.  This table was manually generated but in future versions it is anticipated that the table will be automatically produced and updated via a TSTool command file.
 
-Transbasin Diversion | OWF Total | Water Education Colorado Total | Basin Fact Sheet Total
+Transbasin Diversion | OWF Mean Annual Flow Diverted | Water Education Colorado Mean Annual Flow Diverted | Basin Fact Sheet Mean Annual Flow Diverted
 --- | :---: | :---: | :---: 
-Wilson Supply Ditch | 2,313 | 2,314 | 1,482^1^
+Wilson Supply Ditch | 2,313 | 2,314 | 1,482
 Deadman Ditch | 848 | 727 | Not Provided
 Bob Creek Ditch | 270 | 91 | Not Provided
 Columbine Ditch-South Platte | 110 | 104 | Not Provided
-Laramie Poudre Tunnel | 14,519 | 14,788 | 18,580^1^
+Laramie Poudre Tunnel | 14,519 | 14,788 | 18,580
 Skyline Ditch | 6,690 | 4,999 | Not Provided
 Cameron Pass Ditch | 188 | 137 | Not Provided
-Michigan Ditch | 2,734 | 2,409 | 3,294^1^
-Grand River Ditch | 17,384 | 17,462 | 17,685^1^
-Colorado-Big Thompson Project | 215,155 | 216,570 | 218,142^1^
-Moffat Collection System Project | 46,663 | 52,390 | 52,155^1^
+Michigan Ditch | 2,734 | 2,409 | 3,294
+Grand River Ditch | 17,384 | 17,462 | 17,685
+Colorado-Big Thompson Project | 215,155 | 216,570 | 218,142
+Moffat Collection System Project | 46,663 | 52,390 | 52,155
 Berthoud Pass Ditch | 676 | 664 | Not Provided
 Straight Creek Tunnel | 299 | 311 | Not Provided
 Vidler Collection System | 524 | 518 | Not Provided
-Roberts Tunnel Collection System | 56,817 | 58,426 | 53,676^1^
+Roberts Tunnel Collection System | 56,817 | 58,426 | 53,676
 Boreas Pass Ditch | 150 | 117 | Not Provided
-Continental-Hoosier Diversion System | 8,390 | 8,375 | 8,747^2^
-Columbine Ditch-Arkansas | Not Computed | 1,431 | 1,719^2^
-Ewing Ditch | Not Computed | 1,027 | 1,081^2^
-Warren E. Wurts Ditch | Not Computed | 2,508 | 2,858^2^
-Homestake Tunnel | Not Computed | 25,286 | 24,764^2^
-Charles H. Boustead Tunnel | Not Computed | 52,013 | 49,706^2^
-Busk-Ivanhoe Tunnel | Not Computed | 5,108 | 5,484^2^
-Twin Lakes Tunnel | Not Computed | 40,005 | 39,204^2^
-Larkspur Ditch | Not Computed | 190 | 73^1^
-Hudson Branch Ditch | Not Computed | 352 | 157^1^
-Medano Pass Ditch | Not Computed | 1,100 | 843^1^
-Tarbell Ditch | Not Computed | 432 | 370^1^
-Tabor Ditch | Not Computed | 703 | 827^1^
-Weminuche Pass Ditch | Not Computed | 1,325 | 1,133^1^
-Pine River-Weminuche Pass Ditch | Not Computed | 481 | 426^1^
-Williams Creek-Squaw Pass Ditch | Not Computed | 240 | 221^1^
-Don La Font Ditch Nos. 1 and 2 | Not Computed | 191 | 174^1^
-Treasure Pass Ditch | Not Computed | 214 | 225^1^
-San Juan-Chama Project | Not Computed | 92,789 | 89,832^1^
-Red Mountain Ditch | Not Computed | 98 | 99^1^
+Continental-Hoosier Diversion System | 8,390 | 8,375 | 8,747*
+Columbine Ditch-Arkansas | Not Computed | 1,431 | 1,719*
+Ewing Ditch | Not Computed | 1,027 | 1,081*
+Warren E. Wurts Ditch | Not Computed | 2,508 | 2,858*
+Homestake Tunnel | Not Computed | 25,286 | 24,764*
+Charles H. Boustead Tunnel | Not Computed | 52,013 | 49,706*
+Busk-Ivanhoe Tunnel | Not Computed | 5,108 | 5,484*
+Twin Lakes Tunnel | Not Computed | 40,005 | 39,204*
+Larkspur Ditch | Not Computed | 190 | 73
+Hudson Branch Ditch | Not Computed | 352 | 157
+Medano Pass Ditch | Not Computed | 1,100 | 843
+Tarbell Ditch | Not Computed | 432 | 370
+Tabor Ditch | Not Computed | 703 | 827
+Weminuche Pass Ditch | Not Computed | 1,325 | 1,133
+Pine River-Weminuche Pass Ditch | Not Computed | 481 | 426
+Williams Creek-Squaw Pass Ditch | Not Computed | 240 | 221
+Don La Font Ditch Nos. 1 and 2 | Not Computed | 191 | 174
+Treasure Pass Ditch | Not Computed | 214 | 225
+San Juan-Chama Project | Not Computed | 92,789 | 89,832
+Red Mountain Ditch | Not Computed | 98 | 99
 Carbon Lake Ditch | Not Computed | 256 | Not Provided
-Mineral Point Ditch | Not Computed | 96 | 138^1^
-Leon Tunnel | Not Computed | 1,373 | 1,364^1^
-Divide Highline Feeder Ditch | Not Computed | 882 | 1,011^1^
+Mineral Point Ditch | Not Computed | 96 | 138
+Leon Tunnel | Not Computed | 1,373 | 1,364
+Divide Highline Feeder Ditch | Not Computed | 882 | 1,011
 Sarvis Ditch | Not Computed | 760 | Not Provided
-Stillwater Ditch | Not Computed | 2,028 | 4,280^1^
+Stillwater Ditch | Not Computed | 2,028 | 4,280
 Dome Ditch | Not Computed | 300 | Not Provided
-Redlands Power Canal | Not Computed | 502,415 | 510,930^1^
-
-^1^ 1998 annual reports for each division, 10-year average
-^2^ Period of Record is 1971-2003
+Redlands Power Canal | Not Computed | 502,415 | 510,930
 
 
 ## Visualizations ##
