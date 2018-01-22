@@ -4,6 +4,21 @@ This repository contains the [Open Water Foundation (OWF)](http://openwaterfound
 This is a foundational dataset that provides unique identifiers and other data for transbasin diversions and the identifiers can be used to link other datasets.
 OWF has created and is maintaining this dataset to facilitate work on various data analysis and visualization projects in Colorado.  **Note that this work is initially focused on the South Platte Basin.  The dataset will continue to be filled in as time and resources permit.** 
 
+The following sections provide a summary of the project repository:
+
+* [Repository Contents](#repository-contents)
+* [Attribution](#attribution)
+* [Analysis Workflow](#analysis-workflow)
+* [Verification](#verification)
+* [Visualizations](#visualizations)
+* [How to Use the Data](#how-to-use-the-data)
+* [Disclaimer](#disclaimer)
+* [License](#license)
+* [Contributing](#contributing)
+* [Maintainers](#maintainers)
+* [Contributors](#contributors)
+
+
 ## Repository Contents ##
 
 The repository contains the following:
