@@ -30,7 +30,13 @@ ChangeInterval(TSList=AllTS,Alias="%D-Streamflow-Annual",NewInterval=Year,OldTim
 ReplaceValue(TSList=AllMatchingTSID,TSID="*Annual",MinValue=0.00,MaxValue=0.00,Action=SetMissing)
 #
 # 4) Calculate mean annual diversion total
-CalculateTimeSeriesStatistic(TSList=AllMatchingTSID,TSID="*Annual*",Statistic="Mean",TableID="Mean-Annual-Diversion-Total",TableTSIDColumn="Gage",TableStatisticColumn="Mean_Annual_Diverted")
+CalculateTimeSeriesStatistic(TSList=AllMatchingTSID,TSID="*Annual*",Statistic="Mean",TableID="Mean-Annual-Diversion-Total",TableTSIDColumn="Gage_ID",TableTSIDFormat="%L",TableStatisticColumn="Mean_Annual_Diverted")
+# Join results to table of diversion names to be exported in CSV format
+JoinTables(TableID="Diversion_Gages",TableToJoinID="Mean-Annual-Diversion-Total",JoinColumns="Gage_ID:Gage_ID",IncludeColumns="Mean_Annual_Diverted")
+CopyTable(TableID="Diversion_Gages",NewTableID="Diversion_Gages_Mean_Annual",IncludeColumns="TransbasinDiversionName,Mean_Annual_Diverted",ColumnMap="TransbasinDiversionName:Transbasin_Diversion,Mean_Annual_Diverted:Mean_Annual_Flow_Diverted_AF")
+SortTable(TableID="Diversion_Gages_Mean_Annual",SortColumns="Mean_Annual_Flow_Diverted_AF",SortOrder="Mean_Annual_Flow_Diverted_AF:Descending")
+WriteTableToDelimitedFile(TableID="Diversion_Gages_Mean_Annual",OutputFile="..\data\Transbasin-Diversions-Average-Annual-Diverted.csv",WriteHeaderComments=False,NaNValue="Blank")
+#
 #
 # 5)  Generate graphs
 # Graphs of monthly data
